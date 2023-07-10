@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Namaste Reacth</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- <h1>Namaste Everyone!</h1> (using html) -->
     <div id="root"></div>
-</body>
-<script>
-    
-    const heading = document.createElement("h1");//create h1 tag using js //api library, windows, js engine 
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script>
+    const heading = React.createElement(
+      "h1",
+      { id: "title" },
+      "Namaste Everyone..!"
+    );
+    const root = ReactDOM.createRoot(document.getElementById("root"));
 
-    heading.innerHTML  =  "Namaste Everyone from JavaScript";
-
-    const root = document.getElementById("root");
-
-    root.appendChild(heading);
-
-</script>
+    root.render(heading); //paasing react element inside the root (takes in react element and modifies the dom)
+  </script>
 </html>
