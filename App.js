@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const header =(
+const TitleComponent = ()=>(
   <div className="title">
     <h1>Hii there</h1>
     <h2>This is react element</h2>
@@ -13,7 +13,7 @@ const header =(
 //Functional component (New way of writing code)
 const HeaderComponent = ()=>
   (<div >
-    {header}
+    <TitleComponent/>
     <h1>Namaste React functional component</h1>
     <h4>using JSX</h4>
   </div>);
