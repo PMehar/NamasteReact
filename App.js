@@ -1606,9 +1606,7 @@ const restaurantList = [
 const RestaurantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
   return (
     <div className="card">
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      {/* <img
+      <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
           cloudinaryImageId
@@ -1616,7 +1614,7 @@ const RestaurantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
       />
       <h2>{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
-      <h4>{avgRating} stars</h4> */}
+      <h4>{avgRating} stars</h4>
     </div>
   );
 };
@@ -1624,30 +1622,22 @@ const RestaurantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
 const Body = () => {
   return (
     <div className="restaurant-list">
-      <RestaurantCard
-        name={restaurantList[0].data.name}
-        cuisines={restaurantList[0].data.cuisines}
-      />
-      <RestaurantCard
-        name={restaurantList[1].data.name}
-        cuisines={restaurantList[0].data.cuisines}
-      />
-      <RestaurantCard
-        name={restaurantList[2].data.name}
-        cuisines={restaurantList[0].data.cuisines}
-      />
-      {/* <RestaurantCard restaurant={restaurantList[3]} />
-      <RestaurantCard restaurant={restaurantList[4]} />
-      <RestaurantCard restaurant={restaurantList[5]} />
-      <RestaurantCard restaurant={restaurantList[6]} />
-      <RestaurantCard restaurant={restaurantList[7]} />
-      <RestaurantCard restaurant={restaurantList[8]} />
-      <RestaurantCard restaurant={restaurantList[9]} />
-      <RestaurantCard restaurant={restaurantList[10]} />
-      <RestaurantCard restaurant={restaurantList[11]} />
-      <RestaurantCard restaurant={restaurantList[12]} />
-      <RestaurantCard restaurant={restaurantList[13]} />
-      <RestaurantCard restaurant={restaurantList[14]} /> */}
+      <RestaurantCard {...restaurantList[0].data}/>
+      <RestaurantCard {...restaurantList[1].data}/>
+      <RestaurantCard {...restaurantList[2].data}/>
+      <RestaurantCard {...restaurantList[3].data}/>
+      <RestaurantCard {...restaurantList[4].data}/>
+      <RestaurantCard {...restaurantList[5].data}/>
+      <RestaurantCard {...restaurantList[6].data}/>
+      <RestaurantCard {...restaurantList[7].data}/>
+      <RestaurantCard {...restaurantList[8].data}/>
+      <RestaurantCard {...restaurantList[9].data}/>
+      <RestaurantCard {...restaurantList[10].data}/>
+      <RestaurantCard {...restaurantList[11].data}/>
+      <RestaurantCard {...restaurantList[12].data}/>
+      <RestaurantCard {...restaurantList[13].data}/>
+      <RestaurantCard {...restaurantList[14].data}/>
+     
     </div>
   );
 };
