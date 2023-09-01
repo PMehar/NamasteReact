@@ -830,3 +830,6 @@ export const restaurantList = [
       subtype: "basic",
     },
   ];
+
+export const MENU_API =
+"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.968015668889347&lng=77.58034006995832&restaurantId=";
