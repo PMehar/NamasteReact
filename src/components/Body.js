@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import {Link} from "react-router-dom";
-
+import useOnline from "../utils/useOnline"
 const Body = () => {
   //const searchTxt ="KFC";
   const [searchText, setSearchText] = useState(""); //To create state variable
@@ -23,6 +23,12 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
+  const isOnline = useOnline();
+
+  if(!isOnline){
+    return (<h1>🔴offline, please check your internet Connection!!</h1>)
+  }
+
   // console.log("render");
   if (!restaurants) return null; //Not Render Components(Early Return)
 
@@ -35,10 +41,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container p-5 my-5">
+        
         <input
           type="text"
-          className="search-input"
+          className="search-input p-2 m-2 border border-black rounded-lg focus:bg-green-100"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
@@ -46,7 +53,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="search-btn p-2 m-1 bg-purple-400 hover:bg-purple-800 rounded-lg text-white"
           onClick={() => {
             //need  to filter the data
             //filterData
@@ -57,18 +64,18 @@ const Body = () => {
         >
           Search
         </button>
+      </div>
 
         {/* afte r search btn clicked it re-renders this whole and ui is updated  */}
-        <div className="restaurant-list">
+        <div className="restaurant-list flex flex-wrap">
           {/* write the code for no restaurants when no res match */}
 
           {filteredrestaurants.map((restaurant) => {
             return (
-              <Link  key={restaurant?.info?.id} to={"/restaurant/"+ restaurant?.info?.id}><RestaurantCard {...restaurant?.info}/> </Link> 
+              <Link  to={"/restaurant/"+ restaurant?.info?.id}  key={restaurant?.info?.id}><RestaurantCard {...restaurant?.info}/> </Link> 
             );
           })}
         </div>
-      </div>
     </>
   );
 };
