@@ -10,21 +10,26 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 //import InstaMart from "./components/InstaMart";
 
 const InstaMart = lazy(()=>import("./components/InstaMart"));
 
 const AppLayout = () => {
+  const [user, setUser] =  useState({
+    name: "Puja Mehar",
+    email: "pujamehar05@gmail.com",
+  });
 
 
   return (
-    <>
+    <UserContext.Provider value= {{user:user, setUser:setUser,}}>
       <Header />
       <Outlet/> 
      
       <Footer />
    
-    </>
+    </UserContext.Provider>
   );
 };
 
