@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import {Link} from "react-router-dom";
 import useOnline from "../utils/useOnline"
-const Body = () => {
+const Body = ({user}) => {
   //const searchTxt ="KFC";
   const [searchText, setSearchText] = useState(""); //To create state variable
   const [restaurants, setRestaurants] = useState([]);
@@ -72,7 +72,7 @@ const Body = () => {
 
           {filteredrestaurants.map((restaurant) => {
             return (
-              <Link  to={"/restaurant/"+ restaurant?.info?.id}  key={restaurant?.info?.id}><RestaurantCard {...restaurant?.info}/> </Link> 
+              <Link  to={"/restaurant/"+ restaurant?.info?.id}  key={restaurant?.info?.id}><RestaurantCard {...restaurant?.info} user={user}/> </Link> 
             );
           })}
         </div>
